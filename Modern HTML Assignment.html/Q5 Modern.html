@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Q5 Modern HTML5 Features Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        header, section, article, footer {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to HTML5 Features Showcase</h1>
+    </header>
+
+    <section>
+        <h2>Feature 1: Video Element</h2>
+        <p>HTML5 introduced the <code>&lt;video&gt;</code> element, which allows you to embed video content directly into your web pages. Here's an example:</p>
+        <video controls width="400" src="./video (2160p).mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <article>
+        <h2>Feature 2: Geolocation API</h2>
+        <p>HTML5 includes the Geolocation API, which allows web applications to access a user's geographical location. You can use this API to create location-aware web apps. Here's a simple example:</p>
+        <p id="location">Waiting for location...</p>
+        <script>
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    document.getElementById("location").innerHTML = "Your current location is: Latitude " + position.coords.latitude + ", Longitude " + position.coords.longitude;
+                });
+            } else {
+                document.getElementById("location").innerHTML = "Geolocation is not supported by your browser.";
+            }
+        </script>
+    </article>
+
+    <footer>
+        <h2>Feature 3: Local Storage</h2>
+        <p>HTML5 introduced local storage capabilities through the <code>localStorage</code> object, which allows you to store data on the client-side. This data persists even after the browser is closed. Here's an example of storing and retrieving data:</p>
+        <input type="text" id="data" placeholder="Enter some data">
+        <button onclick="storeData()">Store Data</button>
+        <p id="displayData"></p>
+        <script>
+            function storeData() {
+                const data = document.getElementById("data").value;
+                localStorage.setItem("user_data", data);
+                document.getElementById("displayData").innerHTML = "Stored Data: " + localStorage.getItem("user_data");
+            }
+        </script>
+    </footer>
+</body>
+</html>
